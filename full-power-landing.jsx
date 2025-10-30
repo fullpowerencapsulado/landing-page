@@ -1037,7 +1037,7 @@ export default function FullPowerLanding() {
         <div className="absolute inset-0 z-0">
           <div
             className="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-90 mix-blend-hard-light"
-            style={{backgroundImage: "url('/bg_img.png')"}}
+            style={{backgroundImage: "url('/bg_img.png')", backgroundAttachment: 'fixed'}}
           ></div>
           {/* Gradiente forte da esquerda (texto) para direita (imagem visível) */}
           <div className="absolute inset-0 bg-gradient-to-r from-[#00d900]/95 via-[#00d900]/60 via-30% to-transparent"></div>
