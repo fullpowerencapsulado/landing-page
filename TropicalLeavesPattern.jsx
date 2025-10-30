@@ -1,6 +1,6 @@
 import React from 'react';
 
-export default function TropicalLeavesPattern() {
+export default function TropicalLeavesPattern({ mobileInverted = false }) {
   return (
     <div className="absolute inset-0 overflow-hidden pointer-events-none">
       <svg className="absolute inset-0 w-full h-full" xmlns="http://www.w3.org/2000/svg">
@@ -111,7 +111,7 @@ export default function TropicalLeavesPattern() {
 
           </pattern>
 
-          {/* Gradiente de opacidade de cima para baixo */}
+          {/* Gradiente de opacidade de cima para baixo - Desktop */}
           <linearGradient id="opacity-gradient" x1="0%" y1="0%" x2="0%" y2="100%">
             <stop offset="0%" style={{stopColor: 'white', stopOpacity: 0.15}} />
             <stop offset="25%" style={{stopColor: 'white', stopOpacity: 0.12}} />
@@ -120,19 +120,45 @@ export default function TropicalLeavesPattern() {
             <stop offset="100%" style={{stopColor: 'white', stopOpacity: 0.02}} />
           </linearGradient>
 
-          {/* Máscara com gradiente */}
+          {/* Gradiente de opacidade invertido - Mobile (mais forte na parte inferior/branca) */}
+          <linearGradient id="opacity-gradient-mobile" x1="0%" y1="0%" x2="0%" y2="100%">
+            <stop offset="0%" style={{stopColor: 'white', stopOpacity: 0.05}} />
+            <stop offset="25%" style={{stopColor: 'white', stopOpacity: 0.08}} />
+            <stop offset="50%" style={{stopColor: 'white', stopOpacity: 0.12}} />
+            <stop offset="75%" style={{stopColor: 'white', stopOpacity: 0.18}} />
+            <stop offset="100%" style={{stopColor: 'white', stopOpacity: 0.22}} />
+          </linearGradient>
+
+          {/* Máscara com gradiente desktop */}
           <mask id="gradient-mask">
             <rect width="100%" height="100%" fill="url(#opacity-gradient)" />
           </mask>
+
+          {/* Máscara com gradiente mobile */}
+          <mask id="gradient-mask-mobile">
+            <rect width="100%" height="100%" fill="url(#opacity-gradient-mobile)" />
+          </mask>
         </defs>
 
-        {/* Aplicar pattern com máscara de gradiente */}
+        {/* Aplicar pattern com máscara de gradiente - Desktop */}
         <rect
+          className={mobileInverted ? "hidden md:block" : ""}
           width="100%"
           height="100%"
           fill="url(#tropical-leaves-pattern)"
           mask="url(#gradient-mask)"
         />
+
+        {/* Aplicar pattern com máscara de gradiente invertido - Mobile */}
+        {mobileInverted && (
+          <rect
+            className="block md:hidden"
+            width="100%"
+            height="100%"
+            fill="url(#tropical-leaves-pattern)"
+            mask="url(#gradient-mask-mobile)"
+          />
+        )}
       </svg>
     </div>
   );
