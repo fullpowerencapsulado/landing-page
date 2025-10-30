@@ -1,0 +1,309 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply antialiased;
+  }
+}
+
+@layer utilities {
+  .animate-fade-in {
+    animation: fade-in 0.8s ease-out;
+  }
+
+  .animate-fade-in-delayed {
+    animation: fade-in 0.8s ease-out 0.3s both;
+  }
+
+  .animate-slide-down {
+    animation: slide-down 0.8s ease-out;
+  }
+
+  .animate-slide-up {
+    animation: slide-up 0.8s ease-out 0.2s both;
+  }
+
+  .animate-pulse-glow {
+    animation: pulse-glow 2s ease-in-out infinite;
+  }
+
+  .animate-pulse-scale {
+    animation: pulse-scale 2s ease-in-out infinite;
+  }
+
+  @keyframes fade-in {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes slide-down {
+    from {
+      opacity: 0;
+      transform: translateY(-30px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes slide-up {
+    from {
+      opacity: 0;
+      transform: translateY(30px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes pulse-glow {
+    0%, 100% {
+      box-shadow: 0 0 20px rgba(239, 68, 68, 0.5);
+    }
+    50% {
+      box-shadow: 0 0 40px rgba(239, 68, 68, 0.8);
+    }
+  }
+
+  @keyframes pulse-scale {
+    0%, 100% {
+      transform: scale(1);
+    }
+    50% {
+      transform: scale(1.05);
+    }
+  }
+
+  /* Animações de Folhas - Flutuação Suave */
+  .leaf-scroll-animate {
+    opacity: 0;
+    transition: opacity 0.8s cubic-bezier(0.34, 1.56, 0.64, 1), transform 0.2s ease-out;
+  }
+
+  .leaf-scroll-animate.visible {
+    opacity: 1;
+  }
+
+  /* Animação de Scroll para Elementos Gerais */
+  .scroll-fade-in {
+    opacity: 0;
+    transform: translateY(40px);
+    transition: all 0.8s ease-out;
+  }
+
+  .scroll-fade-in.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  .scroll-scale-in {
+    opacity: 0;
+    transform: scale(0.9);
+    transition: all 0.7s cubic-bezier(0.34, 1.56, 0.64, 1);
+  }
+
+  .scroll-scale-in.visible {
+    opacity: 1;
+    transform: scale(1);
+  }
+
+  .animate-leaf-float-1 {
+    animation: leaf-float-1 6s ease-in-out infinite;
+  }
+
+  .animate-leaf-float-2 {
+    animation: leaf-float-2 7s ease-in-out infinite;
+  }
+
+  .animate-leaf-float-3 {
+    animation: leaf-float-3 5s ease-in-out infinite;
+  }
+
+  .animate-leaf-float-4 {
+    animation: leaf-float-4 8s ease-in-out infinite;
+  }
+
+  .animate-leaf-float-5 {
+    animation: leaf-float-5 6.5s ease-in-out infinite;
+  }
+
+  .animate-leaf-float-6 {
+    animation: leaf-float-6 7.5s ease-in-out infinite;
+  }
+
+  .animate-leaf-float-7 {
+    animation: leaf-float-7 6.8s ease-in-out infinite;
+  }
+
+  .animate-leaf-float-8 {
+    animation: leaf-float-8 5.5s ease-in-out infinite;
+  }
+
+  .animate-leaf-float-9 {
+    animation: leaf-float-9 7.2s ease-in-out infinite;
+  }
+
+  .animate-leaf-float-10 {
+    animation: leaf-float-10 6.3s ease-in-out infinite;
+  }
+
+  @keyframes leaf-float-1 {
+    0%, 100% {
+      transform: translateY(0px) rotate(0deg) scale(1);
+    }
+    25% {
+      transform: translateY(-15px) rotate(3deg) scale(1.02);
+    }
+    50% {
+      transform: translateY(-25px) rotate(-2deg) scale(1.05);
+    }
+    75% {
+      transform: translateY(-15px) rotate(2deg) scale(1.02);
+    }
+  }
+
+  @keyframes leaf-float-2 {
+    0%, 100% {
+      transform: translateY(0px) rotate(0deg) scale(1);
+    }
+    30% {
+      transform: translateY(-20px) rotate(-5deg) scale(1.03);
+    }
+    60% {
+      transform: translateY(-30px) rotate(4deg) scale(1.06);
+    }
+    80% {
+      transform: translateY(-10px) rotate(-3deg) scale(1.02);
+    }
+  }
+
+  @keyframes leaf-float-3 {
+    0%, 100% {
+      transform: translateY(0px) rotate(0deg) scale(1);
+    }
+    20% {
+      transform: translateY(-12px) rotate(4deg) scale(1.04);
+    }
+    50% {
+      transform: translateY(-22px) rotate(-3deg) scale(1.07);
+    }
+    70% {
+      transform: translateY(-18px) rotate(2deg) scale(1.03);
+    }
+  }
+
+  @keyframes leaf-float-4 {
+    0%, 100% {
+      transform: translateY(0px) rotate(0deg) scale(1);
+    }
+    25% {
+      transform: translateY(-18px) rotate(-4deg) scale(1.05);
+    }
+    55% {
+      transform: translateY(-28px) rotate(5deg) scale(1.08);
+    }
+    85% {
+      transform: translateY(-14px) rotate(-2deg) scale(1.03);
+    }
+  }
+
+  @keyframes leaf-float-5 {
+    0%, 100% {
+      transform: translateY(0px) rotate(0deg) scale(1);
+    }
+    30% {
+      transform: translateY(-16px) rotate(3deg) scale(1.04);
+    }
+    65% {
+      transform: translateY(-26px) rotate(-4deg) scale(1.06);
+    }
+    90% {
+      transform: translateY(-12px) rotate(2deg) scale(1.02);
+    }
+  }
+
+  @keyframes leaf-float-6 {
+    0%, 100% {
+      transform: translateY(0px) rotate(0deg) scale(1);
+    }
+    35% {
+      transform: translateY(-22px) rotate(-5deg) scale(1.05);
+    }
+    70% {
+      transform: translateY(-32px) rotate(6deg) scale(1.07);
+    }
+    90% {
+      transform: translateY(-16px) rotate(-3deg) scale(1.03);
+    }
+  }
+
+  @keyframes leaf-float-7 {
+    0%, 100% {
+      transform: translateY(0px) rotate(0deg) scale(1);
+    }
+    28% {
+      transform: translateY(-17px) rotate(6deg) scale(1.04);
+    }
+    58% {
+      transform: translateY(-29px) rotate(-4deg) scale(1.06);
+    }
+    82% {
+      transform: translateY(-13px) rotate(3deg) scale(1.02);
+    }
+  }
+
+  @keyframes leaf-float-8 {
+    0%, 100% {
+      transform: translateY(0px) rotate(0deg) scale(1);
+    }
+    22% {
+      transform: translateY(-14px) rotate(-6deg) scale(1.05);
+    }
+    52% {
+      transform: translateY(-24px) rotate(5deg) scale(1.08);
+    }
+    78% {
+      transform: translateY(-11px) rotate(-2deg) scale(1.03);
+    }
+  }
+
+  @keyframes leaf-float-9 {
+    0%, 100% {
+      transform: translateY(0px) rotate(0deg) scale(1);
+    }
+    32% {
+      transform: translateY(-19px) rotate(7deg) scale(1.06);
+    }
+    64% {
+      transform: translateY(-27px) rotate(-5deg) scale(1.09);
+    }
+    88% {
+      transform: translateY(-15px) rotate(4deg) scale(1.04);
+    }
+  }
+
+  @keyframes leaf-float-10 {
+    0%, 100% {
+      transform: translateY(0px) rotate(0deg) scale(1);
+    }
+    26% {
+      transform: translateY(-16px) rotate(-7deg) scale(1.03);
+    }
+    56% {
+      transform: translateY(-26px) rotate(8deg) scale(1.07);
+    }
+    84% {
+      transform: translateY(-12px) rotate(-4deg) scale(1.02);
+    }
+  }
+}
