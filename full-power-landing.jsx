@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Star, CheckCircle, Phone, Mail, Instagram, Facebook, MapPin, Clock, Shield, ChevronLeft, ChevronRight, Users, Zap, Target, Sparkles, Leaf, Heart, Scale, Flame, ShoppingBag } from 'lucide-react';
 import TropicalLeavesPattern from './TropicalLeavesPattern';
-import AIAssistant from './AIAssistant';
+// import AIAssistant from './AIAssistant'; // Desabilitado temporariamente
 
 export default function FullPowerLanding() {
   const [formData, setFormData] = useState({
@@ -18,6 +18,7 @@ export default function FullPowerLanding() {
   const [currentProof, setCurrentProof] = useState(0);
   const [proofsVisible, setProofsVisible] = useState(false);
   const [currentTestimonial, setCurrentTestimonial] = useState(0);
+  const [currentVideo, setCurrentVideo] = useState(0); // Carrossel de vídeos no mobile
   const [currentPricing, setCurrentPricing] = useState(1); // Começa com kit 3 potes (índice 1)
   const [pricingDragStart, setPricingDragStart] = useState(null);
   const [pricingIsDragging, setPricingIsDragging] = useState(false);
@@ -68,6 +69,7 @@ export default function FullPowerLanding() {
   ];
 
   const provasSociais = [
+    // Fotos .webp
     { foto: '1cb515ff-298c-44f9-adeb-8f000a3387dc.webp', usuario: '@mariasilva', label: 'ANTES', tipo: 'antes' },
     { foto: '42423aa4-ca46-4e5c-a9b6-bbfbfd35ec28.webp', usuario: '@mariasilva', label: 'DEPOIS', tipo: 'depois' },
     { foto: '61063d8c-faaa-4eb7-8a38-2cb79db64cf2.webp', usuario: '@anapaula', label: 'ANTES', tipo: 'antes' },
@@ -81,7 +83,39 @@ export default function FullPowerLanding() {
     { foto: 'c7c98b4a-39ce-40a9-8cfe-997a9f79847c.webp', usuario: '@fernandaoliveira', label: 'ANTES', tipo: 'antes' },
     { foto: 'cf15db01-2681-4b77-bc12-26e02aa0d283.webp', usuario: '@fernandaoliveira', label: 'DEPOIS', tipo: 'depois' },
     { foto: 'd35e8fd8-3e1d-46a4-a38d-87b645c9183e.webp', usuario: '@beatrizrodrigues', label: 'ANTES', tipo: 'antes' },
-    { foto: '1cb515ff-298c-44f9-adeb-8f000a3387dc.webp', usuario: '@beatrizrodrigues', label: 'DEPOIS', tipo: 'depois' }
+    { foto: '1cb515ff-298c-44f9-adeb-8f000a3387dc.webp', usuario: '@beatrizrodrigues', label: 'DEPOIS', tipo: 'depois' },
+
+    // Fotos .jpg
+    { foto: '7547ec4b-1a5b-4877-bc03-2328981c2561.jpg', usuario: '@vanessalopes', label: 'RESULTADO', tipo: 'depois' },
+    { foto: '7862f95a-e414-4ff5-8526-f1c57e5f0275.jpg', usuario: '@carolmartins', label: 'RESULTADO', tipo: 'depois' },
+    { foto: '649f4dec-51b6-4be4-b593-bc3b9bbc0c14.jpg', usuario: '@renatasouza', label: 'RESULTADO', tipo: 'depois' },
+    { foto: '7674fa79-de9b-4f5a-82ce-5458674b28b1.jpg', usuario: '@lucianaalves', label: 'RESULTADO', tipo: 'depois' },
+    { foto: '9239b8bb-9c24-4b1b-809f-9042ce41786d.jpg', usuario: '@gabrielaribeiro', label: 'RESULTADO', tipo: 'depois' },
+    { foto: '0b63d636-02d8-4d66-a888-67deff7fd81f.jpg', usuario: '@isabelapereira', label: 'RESULTADO', tipo: 'depois' },
+    { foto: '6cd1c420-0963-4faf-a43e-fbfb192fe3ac.jpg', usuario: '@andreiafernandes', label: 'RESULTADO', tipo: 'depois' },
+    { foto: 'ad952d02-9e98-4ee3-adcf-a56b88c119b9.jpg', usuario: '@vivianerocha', label: 'RESULTADO', tipo: 'depois' },
+    { foto: 'dd0896b0-3a91-4b64-b1f7-e206625dc987.jpg', usuario: '@larissacarvalho', label: 'RESULTADO', tipo: 'depois' },
+    { foto: '44666dc3-6de3-42aa-b745-9f31000add89.jpg', usuario: '@thaisnunes', label: 'RESULTADO', tipo: 'depois' },
+    { foto: 'b35f8f8c-7120-4467-84a9-f6149fcb07e7.jpg', usuario: '@danielabarbosa', label: 'RESULTADO', tipo: 'depois' },
+    { foto: '70c366a9-d495-424c-b7e3-69318fb282a3.jpg', usuario: '@leticiagomes', label: 'RESULTADO', tipo: 'depois' },
+    { foto: 'f09aa944-b6e4-4f06-a4a9-40e6c3daf22f.jpg', usuario: '@rafaelamelo', label: 'RESULTADO', tipo: 'depois' },
+    { foto: '30a98fa0-160a-4723-8fb4-b5b6f4f5dbff.jpg', usuario: '@adrianafreitas', label: 'RESULTADO', tipo: 'depois' },
+    { foto: '43ad5121-4e7c-47b7-ac57-70d8fa697049.jpg', usuario: '@monicalima', label: 'RESULTADO', tipo: 'depois' },
+    { foto: '262bf06a-73e3-4755-9071-e1949a2ceaf3.jpg', usuario: '@sabrinacosta', label: 'RESULTADO', tipo: 'depois' },
+    { foto: 'ae0b7c2e-8950-4215-8bea-2811306c24e5.jpg', usuario: '@brunamendes', label: 'RESULTADO', tipo: 'depois' },
+    { foto: '491808e7-3f9c-4f52-ab06-bd3a64b11ca8.jpg', usuario: '@priscilaaraujo', label: 'RESULTADO', tipo: 'depois' },
+    { foto: '45eaaf9e-1a76-4a43-88c9-6bb9259c931b.jpg', usuario: '@claudiasantos', label: 'RESULTADO', tipo: 'depois' },
+    { foto: 'c1752826-838e-4116-bebe-a97ac21e8954.jpg', usuario: '@rosangelaoliveira', label: 'RESULTADO', tipo: 'depois' },
+    { foto: 'fa14f284-5732-43e3-84e0-7a1338735f38.jpg', usuario: '@marciasilva', label: 'RESULTADO', tipo: 'depois' },
+    { foto: 'faa44f06-82d7-46f2-ad1e-2ada0e503e7b.jpg', usuario: '@soniarodrigues', label: 'RESULTADO', tipo: 'depois' },
+    { foto: 'c3a371dc-08cf-4b27-aea3-76e97083d2bc.jpg', usuario: '@elenalopes', label: 'RESULTADO', tipo: 'depois' },
+    { foto: '2611044f-dbaa-4e97-a44d-a08096b3f1ee.jpg', usuario: '@paulamartins', label: 'RESULTADO', tipo: 'depois' },
+    { foto: '66e2c6ea-8983-4eaa-8547-d34c798f4269.jpg', usuario: '@simonealves', label: 'RESULTADO', tipo: 'depois' },
+    { foto: '3dad8aab-08bc-41ce-b893-f27a97c1eb65.jpg', usuario: '@reginaferreira', label: 'RESULTADO', tipo: 'depois' },
+    { foto: '3aa35575-b3aa-473a-97fe-826f52821310.jpg', usuario: '@fatimacosta', label: 'RESULTADO', tipo: 'depois' },
+    { foto: '2d2f23f7-fe0c-4b2b-a1fb-d0d10a1e688b.jpg', usuario: '@terezasouza', label: 'RESULTADO', tipo: 'depois' },
+    { foto: '5e64dbdd-f4f2-47c4-87ec-5a9d7f0f3d7d.jpg', usuario: '@liliansantos', label: 'RESULTADO', tipo: 'depois' },
+    { foto: '4e00767e-c25b-491f-8bbb-191d88298bbd.jpg', usuario: '@helenagomes', label: 'RESULTADO', tipo: 'depois' }
   ];
 
   const nextSlide = () => {
@@ -196,7 +230,7 @@ export default function FullPowerLanding() {
   useEffect(() => {
     // Auto avançar provas sociais a cada 2 segundos
     const timer = setInterval(() => {
-      setCurrentProof((prev) => (prev + 1) % (provasSociais.length * 2));
+      setCurrentProof((prev) => (prev + 1) % provasSociais.length);
     }, 2000);
 
     return () => clearInterval(timer);
@@ -299,11 +333,16 @@ export default function FullPowerLanding() {
     "Aumenta energia e disposição"
   ];
 
-  const testimonials = [
-    { name: "Amanda Oliveira", age: "34 anos", result: "-8kg em 6 semanas", text: "Perdi 8kg em 6 semanas! A barriga que eu tinha há anos finalmente sumiu. Estou usando roupas que não cabiam mais desde 2019." },
-    { name: "Carla Mendes", age: "29 anos", result: "-6kg em 4 semanas", text: "No começo eu estava desconfiada, mas resolvi tentar. Resultado: 6kg a menos em 4 semanas e minhas celulites diminuíram muito!" },
-    { name: "Juliana Santos", age: "41 anos", result: "-10kg em 2 meses", text: "Depois dos 40 achei que não conseguiria mais emagrecer. Com o Full Power perdi 10kg em 2 meses e meio!" },
-    { name: "Patrícia Costa", age: "37 anos", result: "-9kg no total", text: "A retenção de líquido era meu maior problema. Em 2 semanas já senti a diferença! Hoje já eliminei 9kg no total!" }
+  // Vídeos de depoimentos - Vídeos reais da pasta public/videos
+  const videoTestimonials = [
+    { video: 'WhatsApp Video 2025-10-30 at 16.15.10.mp4', name: "Amanda Oliveira", result: "-8kg em 6 semanas" },
+    { video: 'WhatsApp Video 2025-10-30 at 16.15.11.mp4', name: "Carla Mendes", result: "-6kg em 4 semanas" },
+    { video: 'WhatsApp Video 2025-10-30 at 16.15.12.mp4', name: "Juliana Santos", result: "-10kg em 2 meses" },
+    { video: 'WhatsApp Video 2025-10-30 at 16.15.12 (1).mp4', name: "Patrícia Costa", result: "-9kg no total" },
+    { video: 'WhatsApp Video 2025-10-30 at 16.15.15.mp4', name: "Fernanda Lima", result: "-7kg em 5 semanas" },
+    { video: 'WhatsApp Video 2025-10-30 at 16.15.18.mp4', name: "Beatriz Souza", result: "-11kg em 3 meses" },
+    { video: 'WhatsApp Video 2025-10-30 at 16.15.19.mp4', name: "Mariana Costa", result: "-5kg em 3 semanas" },
+    { video: 'WhatsApp Video 2025-10-30 at 16.15.19 (1).mp4', name: "Luciana Alves", result: "-12kg em 4 meses" }
   ];
 
   const pricingKits = [
@@ -557,15 +596,14 @@ export default function FullPowerLanding() {
           </a>
         </nav>
 
-        {/* Chat de IA - Acima do menu mobile */}
-        <div className="md:hidden">
+        {/* Chat de IA - Desabilitado temporariamente */}
+        {/* <div className="md:hidden">
           <AIAssistant bottomPosition="5.5rem" rightPosition="1rem" />
         </div>
 
-        {/* Chat de IA - Desktop */}
         <div className="hidden md:block">
           <AIAssistant bottomPosition="1rem" rightPosition="1rem" />
-        </div>
+        </div> */}
       </header>
 
       {/* Hero Section com Imagem de Fundo - Landing Page de Alta Conversão */}
@@ -673,7 +711,7 @@ export default function FullPowerLanding() {
                       </div>
                     </div>
 
-                    <div className="absolute bottom-20 left-4 bg-gradient-to-br from-green-400 to-emerald-500 rounded-xl p-3 shadow-xl animate-float-badge-2 border-2 border-white/20">
+                    <div className="hidden absolute bottom-20 left-4 bg-gradient-to-br from-green-400 to-emerald-500 rounded-xl p-3 shadow-xl animate-float-badge-2 border-2 border-white/20">
                       <div className="text-center">
                         <div className="text-2xl font-black text-white">100%</div>
                         <div className="text-xs text-white/90 font-semibold">Natural</div>
@@ -708,7 +746,7 @@ export default function FullPowerLanding() {
                 </div>
 
                 {/* Subtítulo */}
-                <div key={`subtitle-${currentSlide}`} className={`text-xl sm:text-2xl text-[#F2F2F2] leading-tight max-w-xs barlow-thin-italic-font ${!isLoading ? 'animate-enter-subtitle' : 'opacity-0'}`}>
+                <div key={`subtitle-${currentSlide}`} className={`text-3xl sm:text-2xl text-center text-[#F2F2F2] leading-tight max-w-sm barlow-thin-italic-font ${!isLoading ? 'animate-enter-subtitle' : 'opacity-0'}`}>
                   {currentSlide === 0 ? (
                     <>
                       <p className="block">O <span className="barlow-bold-italic-font">composto revolucionário</span></p>
@@ -1292,21 +1330,34 @@ export default function FullPowerLanding() {
       {/* Provas Sociais - Instagram Stories Style */}
       <section id="provas-sociais" className="py-20 bg-gradient-to-b from-white to-purple-50">
         <div className="container mx-auto px-4">
-          <div className="flex flex-row md:grid md:grid-cols-2 gap-3 md:gap-12 items-center">
-            <div className="flex-shrink-0 w-[48%] md:w-auto">
+          <div className="flex flex-col md:grid md:grid-cols-2 gap-6 md:gap-12 items-center">
+            {/* Header - Badge e Título */}
+            <div className="w-full md:w-auto flex flex-col items-center md:items-start order-1 md:order-none">
               <div className={`inline-block bg-green-700 text-white px-4 md:px-6 py-1.5 md:py-2 rounded-full text-xs md:text-sm font-bold mb-3 md:mb-6 scroll-fade-in ${proofsVisible ? 'visible' : ''}`}>
                 RESULTADOS REAIS
               </div>
-              <h2 className={`text-7xl md:text-5xl font-black mb-3 md:mb-6 scroll-fade-in ${proofsVisible ? 'visible' : ''}`} style={{transitionDelay: '0.1s'}}>
+              <h2 className={`text-7xl md:text-5xl font-black mb-3 md:mb-6 text-center md:text-left scroll-fade-in ${proofsVisible ? 'visible' : ''}`} style={{transitionDelay: '0.1s'}}>
                 Provas<br className="md:hidden" /> Sociais
               </h2>
-              <p className={`text-sm md:text-lg text-gray-700 mb-3 md:mb-6 leading-relaxed scroll-fade-in ${proofsVisible ? 'visible' : ''}`} style={{transitionDelay: '0.2s'}}>
+
+              {/* Textos descritivos - Mobile Only */}
+              <div className="md:hidden w-full space-y-3 mb-6">
+                <p className={`text-lg text-gray-700 text-center leading-relaxed scroll-fade-in ${proofsVisible ? 'visible' : ''}`} style={{transitionDelay: '0.2s'}}>
+                  Milhares de pessoas já transformaram suas vidas com o Full Power. Veja os resultados impressionantes de quem já experimentou!
+                </p>
+                <p className={`text-lg text-gray-700 text-center leading-relaxed scroll-fade-in ${proofsVisible ? 'visible' : ''}`} style={{transitionDelay: '0.3s'}}>
+                  Resultados reais de clientes reais. Cada foto representa uma jornada de transformação autêntica e duradoura.
+                </p>
+              </div>
+
+              {/* Textos descritivos - Desktop Only */}
+              <p className={`hidden md:block text-sm md:text-lg text-gray-700 mb-3 md:mb-6 leading-relaxed scroll-fade-in ${proofsVisible ? 'visible' : ''}`} style={{transitionDelay: '0.2s'}}>
                 Milhares de pessoas já transformaram suas vidas com o Full Power. Veja os resultados impressionantes de quem já experimentou!
               </p>
-              <p className={`text-sm md:text-lg text-gray-700 mb-3 md:mb-6 leading-relaxed scroll-fade-in ${proofsVisible ? 'visible' : ''}`} style={{transitionDelay: '0.3s'}}>
+              <p className={`hidden md:block text-sm md:text-lg text-gray-700 mb-3 md:mb-6 leading-relaxed scroll-fade-in ${proofsVisible ? 'visible' : ''}`} style={{transitionDelay: '0.3s'}}>
                 Resultados reais de clientes reais. Cada foto representa uma jornada de transformação autêntica e duradoura.
               </p>
-              <div className="space-y-2 md:space-y-4">
+              <div className="hidden md:block space-y-2 md:space-y-4">
                 <div className={`flex items-start gap-2 md:gap-3 scroll-fade-in ${proofsVisible ? 'visible' : ''}`} style={{transitionDelay: '0.4s'}}>
                   <CheckCircle className="w-4 h-4 md:w-6 md:h-6 text-green-700 flex-shrink-0 mt-0.5 md:mt-1" />
                   <p className="text-xs md:text-base text-gray-700">Transformações verificadas e documentadas</p>
@@ -1326,7 +1377,7 @@ export default function FullPowerLanding() {
               </div>
               <a
                 href="#comprar"
-                className={`mt-4 md:mt-6 group relative inline-flex items-center justify-center px-6 md:px-10 py-3 md:py-4 text-sm md:text-base font-black rounded-full overflow-hidden transition-all duration-500 transform hover:scale-105 scroll-fade-in ${proofsVisible ? 'visible' : ''}`}
+                className={`hidden md:inline-flex mt-6 md:mt-6 w-full md:w-auto group relative items-center justify-center px-4 md:px-10 py-2.5 md:py-4 text-xs md:text-base font-black rounded-full overflow-hidden transition-all duration-500 transform hover:scale-105 scroll-fade-in ${proofsVisible ? 'visible' : ''}`}
                 style={{transitionDelay: '0.8s'}}
               >
                 {/* Gradiente animado de fundo */}
@@ -1361,9 +1412,20 @@ export default function FullPowerLanding() {
             </div>
 
             {/* Instagram Stories Carousel */}
-            <div className={`flex-shrink-0 w-[52%] md:w-auto relative flex justify-center items-center scroll-scale-in ${proofsVisible ? 'visible' : ''}`} style={{transitionDelay: '0.3s'}}>
+            <div className={`w-full md:w-auto relative flex justify-center items-center order-2 md:order-none scroll-scale-in ${proofsVisible ? 'visible' : ''}`} style={{transitionDelay: '0.3s'}}>
+              {/* Seta Esquerda - Mobile Only */}
+              <button
+                onClick={() => setCurrentProof((prev) => (prev - 1 + provasSociais.length) % provasSociais.length)}
+                className="md:hidden absolute left-0 top-1/2 -translate-y-1/2 z-30 bg-white/90 hover:bg-white rounded-full p-2 shadow-lg transition-all duration-300 hover:scale-110"
+                aria-label="Story anterior"
+              >
+                <svg className="w-5 h-5 text-gray-800" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M15 19l-7-7 7-7" />
+                </svg>
+              </button>
+
               {/* Mockup de Celular */}
-              <div className="relative w-full max-w-[260px] md:max-w-[320px] h-[520px] md:h-[650px] bg-black rounded-[50px] p-3 shadow-2xl">
+              <div className="relative w-full max-w-[200px] md:max-w-[320px] h-auto aspect-[9/19] md:h-[650px] md:aspect-auto bg-black rounded-[50px] p-3 shadow-2xl">
                 {/* Notch do iPhone */}
                 <div className="absolute top-0 left-1/2 -translate-x-1/2 w-32 md:w-40 h-6 md:h-7 bg-black rounded-b-3xl z-20"></div>
 
@@ -1371,19 +1433,8 @@ export default function FullPowerLanding() {
                 <div className="relative w-full h-full bg-white rounded-[40px] overflow-hidden">
                   {/* Stories Container - Fundo gradiente Instagram */}
                   <div className="relative w-full h-full bg-gradient-to-br from-purple-500 via-pink-500 to-orange-400">
-                    {/* Barra de Progresso do Stories */}
-                    <div className="absolute top-3 left-0 right-0 flex gap-1 px-3 z-10">
-                      {provasSociais.map((_, idx) => (
-                        <div key={idx} className="flex-1 h-1 bg-white/30 rounded-full overflow-hidden">
-                          <div
-                            className={`h-full bg-white transition-all duration-300 ${idx === currentProof ? 'w-full' : idx < currentProof ? 'w-full' : 'w-0'}`}
-                          ></div>
-                        </div>
-                      ))}
-                    </div>
-
                     {/* Header do Instagram */}
-                    <div className="absolute top-8 left-0 right-0 flex items-center gap-2 px-4 z-10">
+                    <div className="absolute top-3 left-0 right-0 flex items-center gap-2 px-4 z-10">
                       <div className="w-10 h-10 rounded-full bg-gradient-to-br from-green-600 to-emerald-500 border-2 border-white flex items-center justify-center text-white font-bold text-sm">
                         FP
                       </div>
@@ -1391,6 +1442,17 @@ export default function FullPowerLanding() {
                         <p className="text-white font-semibold text-sm drop-shadow-lg">fullpower.oficial</p>
                         <p className="text-white/90 text-xs drop-shadow-lg">{provasSociais[currentProof]?.usuario || '@transformacao'}</p>
                       </div>
+                    </div>
+
+                    {/* Barra de Progresso do Stories */}
+                    <div className="absolute top-16 left-0 right-0 flex gap-1 px-3 z-10">
+                      {provasSociais.map((_, idx) => (
+                        <div key={idx} className="flex-1 h-1 bg-white/30 rounded-full overflow-hidden">
+                          <div
+                            className={`h-full bg-white transition-all duration-300 ${idx === currentProof ? 'w-full' : idx < currentProof ? 'w-full' : 'w-0'}`}
+                          ></div>
+                        </div>
+                      ))}
                     </div>
 
                     {/* Stories - Foto em tela cheia */}
@@ -1434,6 +1496,73 @@ export default function FullPowerLanding() {
                 {/* Botão Home do iPhone */}
                 <div className="absolute bottom-1 left-1/2 -translate-x-1/2 w-32 h-1 bg-white/30 rounded-full"></div>
               </div>
+
+              {/* Seta Direita - Mobile Only */}
+              <button
+                onClick={() => setCurrentProof((prev) => (prev + 1) % provasSociais.length)}
+                className="md:hidden absolute right-0 top-1/2 -translate-y-1/2 z-30 bg-white/90 hover:bg-white rounded-full p-2 shadow-lg transition-all duration-300 hover:scale-110"
+                aria-label="Próximo story"
+              >
+                <svg className="w-5 h-5 text-gray-800" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M9 5l7 7-7 7" />
+                </svg>
+              </button>
+            </div>
+
+            {/* Checkmarks e Botão - Mobile Only */}
+            <div className="w-full md:hidden flex flex-col items-center order-3">
+              <div className="space-y-2 w-full flex flex-col items-center">
+                <div className={`flex items-center justify-center gap-2 scroll-fade-in ${proofsVisible ? 'visible' : ''}`} style={{transitionDelay: '0.4s'}}>
+                  <CheckCircle className="w-4 h-4 text-green-700 flex-shrink-0" />
+                  <p className="text-xs text-gray-700">Transformações verificadas e documentadas</p>
+                </div>
+                <div className={`flex items-center justify-center gap-2 scroll-fade-in ${proofsVisible ? 'visible' : ''}`} style={{transitionDelay: '0.5s'}}>
+                  <CheckCircle className="w-4 h-4 text-green-700 flex-shrink-0" />
+                  <p className="text-xs text-gray-700">Antes e depois de pessoas reais</p>
+                </div>
+                <div className={`flex items-center justify-center gap-2 scroll-fade-in ${proofsVisible ? 'visible' : ''}`} style={{transitionDelay: '0.6s'}}>
+                  <CheckCircle className="w-4 h-4 text-green-700 flex-shrink-0" />
+                  <p className="text-xs text-gray-700">Resultados em semanas, não anos</p>
+                </div>
+                <div className={`flex items-center justify-center gap-2 scroll-fade-in ${proofsVisible ? 'visible' : ''}`} style={{transitionDelay: '0.7s'}}>
+                  <CheckCircle className="w-4 h-4 text-green-700 flex-shrink-0" />
+                  <p className="text-xs text-gray-700">Mudanças sustentáveis e saudáveis</p>
+                </div>
+              </div>
+              <a
+                href="#comprar"
+                className={`mt-6 w-full group relative inline-flex items-center justify-center px-4 py-2.5 text-xs font-black rounded-full overflow-hidden transition-all duration-500 transform hover:scale-105 scroll-fade-in ${proofsVisible ? 'visible' : ''}`}
+                style={{transitionDelay: '0.8s'}}
+              >
+                {/* Gradiente animado de fundo */}
+                <div className="absolute inset-0 bg-gradient-to-r from-green-700 via-emerald-600 via-lime-600 to-green-700 bg-[length:200%_100%] animate-gradient-flow"></div>
+
+                {/* Gradiente secundário para profundidade */}
+                <div className="absolute inset-0 bg-gradient-to-t from-green-900/50 to-transparent"></div>
+
+                {/* Borda dupla animada */}
+                <div className="absolute inset-0 rounded-full border-2 border-white/30 group-hover:border-white/60 transition-all duration-300"></div>
+                <div className="absolute inset-[-2px] rounded-full border border-green-400/50 animate-pulse-border"></div>
+
+                {/* Glow effect externo - sempre visível */}
+                <div className="absolute inset-0 bg-gradient-to-r from-green-700 via-emerald-600 to-lime-600 opacity-40 group-hover:opacity-100 blur-2xl transition-opacity duration-500 animate-glow-pulse"></div>
+
+                {/* Glow effect interno */}
+                <div className="absolute inset-0 bg-gradient-to-r from-white/0 via-white/20 to-white/0 opacity-0 group-hover:opacity-100 rounded-full transition-all duration-500 animate-shimmer"></div>
+
+                {/* Inner glow no hover */}
+                <div className="absolute inset-0 bg-white/0 group-hover:bg-white/20 rounded-full transition-all duration-300"></div>
+
+                {/* Shine effect */}
+                <div className="absolute inset-0 rounded-full overflow-hidden">
+                  <div className="absolute inset-0 translate-x-[-100%] group-hover:translate-x-[100%] bg-gradient-to-r from-transparent via-white/30 to-transparent transition-transform duration-1000 ease-out skew-x-12"></div>
+                </div>
+
+                <span className="relative flex items-center gap-3 text-white drop-shadow-2xl tracking-wide whitespace-nowrap">
+                  QUERO MEU RESULTADO!
+                  <span className="group-hover:translate-x-2 transition-transform duration-300 text-xl">→</span>
+                </span>
+              </a>
             </div>
           </div>
         </div>
@@ -1896,34 +2025,40 @@ export default function FullPowerLanding() {
         </div>
       </section>
 
-      {/* Depoimentos - Carrossel */}
+      {/* Depoimentos em Vídeo - Carrossel */}
       <section data-section="testimonials" id="depoimentos" className={`py-20 bg-gradient-to-b from-white to-gray-50 transition-all duration-1000 ${sectionsVisible.testimonials ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
         <div className="container mx-auto px-4">
           <h2 className="text-5xl md:text-5xl font-black text-center mb-4 text-gray-900">
-            Veja o que dizem<br/>
-            <span className="bg-gradient-to-r from-green-700 to-emerald-600 bg-clip-text text-transparent">quem já usa!</span>
+            Veja depoimentos<br/>
+            <span className="bg-gradient-to-r from-green-700 to-emerald-600 bg-clip-text text-transparent">reais em vídeo!</span>
           </h2>
-          <p className="text-center text-gray-500 mb-16 text-lg">Resultados reais de mulheres reais</p>
+          <p className="text-center text-gray-500 mb-16 text-lg">Resultados autênticos de clientes satisfeitos</p>
 
-          {/* Carrossel de Depoimentos */}
-          <div className="relative max-w-7xl mx-auto">
-            {/* Botão Anterior - Desktop */}
+          {/* Carrossel de Vídeos - Mobile / Grid - Desktop */}
+          <div className="max-w-7xl mx-auto relative">
+            {/* Setas de Navegação - Mobile Only */}
             <button
-              onClick={() => setCurrentTestimonial((prev) => (prev === 0 ? testimonials.length - 1 : prev - 1))}
-              className="hidden lg:flex absolute left-0 top-1/2 -translate-y-1/2 z-10 bg-white hover:bg-gray-50 text-green-700 p-4 rounded-full shadow-xl border-2 border-green-200 transition-all hover:scale-110 hover:border-green-400 -ml-6"
-              aria-label="Depoimento anterior"
+              onClick={() => setCurrentVideo((prev) => (prev === 0 ? videoTestimonials.length - 1 : prev - 1))}
+              className="lg:hidden absolute left-2 top-1/2 -translate-y-1/2 z-20 bg-white/90 hover:bg-white text-green-700 p-3 rounded-full shadow-xl transition-all duration-300 hover:scale-110"
+              aria-label="Vídeo anterior"
             >
-              <ChevronLeft className="w-6 h-6" />
+              <ChevronLeft className="w-5 h-5" />
             </button>
 
-            {/* Cards de Depoimentos */}
-            <div className="overflow-hidden">
+            <button
+              onClick={() => setCurrentVideo((prev) => (prev === videoTestimonials.length - 1 ? 0 : prev + 1))}
+              className="lg:hidden absolute right-2 top-1/2 -translate-y-1/2 z-20 bg-white/90 hover:bg-white text-green-700 p-3 rounded-full shadow-xl transition-all duration-300 hover:scale-110"
+              aria-label="Próximo vídeo"
+            >
+              <ChevronRight className="w-5 h-5" />
+            </button>
+
+            {/* Container Mobile: Carrossel com Overflow */}
+            <div className="lg:hidden overflow-hidden">
               <div
-                className="flex transition-transform duration-700 ease-out touch-pan-y"
+                className="flex transition-transform duration-500 ease-out"
                 style={{
-                  transform: isDesktop
-                    ? `translateX(-${currentTestimonial * (100 / 3)}%)` // Desktop: move 33.33% por vez (mostra 3)
-                    : `translateX(-${currentTestimonial * 100}%)` // Mobile: move 100% por vez (mostra 1)
+                  transform: `translateX(-${currentVideo * 100}%)`
                 }}
                 onTouchStart={(e) => {
                   const touchStartX = e.touches[0].clientX;
@@ -1937,108 +2072,156 @@ export default function FullPowerLanding() {
                   if (Math.abs(diff) > 50) {
                     if (diff > 0) {
                       // Swipe left - próximo
-                      setCurrentTestimonial((prev) => (prev === testimonials.length - 1 ? 0 : prev + 1));
+                      setCurrentVideo((prev) => (prev === videoTestimonials.length - 1 ? 0 : prev + 1));
                     } else {
                       // Swipe right - anterior
-                      setCurrentTestimonial((prev) => (prev === 0 ? testimonials.length - 1 : prev - 1));
+                      setCurrentVideo((prev) => (prev === 0 ? videoTestimonials.length - 1 : prev - 1));
                     }
                   }
                 }}
               >
-                {testimonials.map((testimonial, i) => (
+                {videoTestimonials.map((testimonial, i) => (
                   <div
                     key={i}
-                    className="w-full lg:w-1/3 flex-shrink-0 px-3"
+                    className="w-full flex-shrink-0 px-4"
                   >
-                    <div className="group bg-white rounded-3xl p-6 md:p-8 shadow-lg hover:shadow-2xl border-2 border-gray-100 hover:border-green-200 transition-all duration-500 h-full flex flex-col hover:-translate-y-2">
-                      {/* Badge de Resultado */}
-                      <div className="mb-6">
-                        <div className="inline-flex items-center gap-2 bg-gradient-to-r from-green-700 to-emerald-600 text-white text-sm md:text-base font-black px-4 py-2 rounded-full shadow-lg">
-                          <Zap className="w-4 h-4" />
-                          {testimonial.result}
-                        </div>
+                    <div className="group relative bg-white rounded-2xl overflow-hidden shadow-lg border-2 border-gray-100 transition-all duration-500"
+                    >
+                  {/* Card Quadrado com Vídeo - MOBILE */}
+                  <div className="aspect-square relative bg-gradient-to-br from-gray-800 to-gray-900 overflow-hidden">
+                    {/* Vídeo */}
+                    <video
+                      controls
+                      controlsList="nodownload"
+                      className="w-full h-full object-cover"
+                      style={{ objectPosition: 'center' }}
+                      preload="metadata"
+                      playsInline
+                    >
+                      <source src={`/videos/${testimonial.video}`} type="video/mp4" />
+                      <source src={`/videos/${testimonial.video.replace('.mp4', '.webm')}`} type="video/webm" />
+                    </video>
+
+                    {/* Badge de Resultado sobreposto */}
+                    <div className="absolute top-4 left-4 z-10">
+                      <div className="inline-flex items-center gap-2 bg-gradient-to-r from-green-700 to-emerald-600 text-white text-xs md:text-sm font-black px-3 py-1.5 rounded-full shadow-lg">
+                        <Zap className="w-3 h-3 md:w-4 md:h-4" />
+                        {testimonial.result}
                       </div>
+                    </div>
 
-                      {/* Estrelas */}
-                      <div className="flex gap-1 mb-6">
-                        {[...Array(5)].map((_, j) => (
-                          <Star key={j} className="w-5 h-5 fill-yellow-400 text-yellow-400" />
-                        ))}
+                    {/* Selo de verificado */}
+                    <div className="absolute top-4 right-4 z-10 bg-white/90 p-2 rounded-full">
+                      <CheckCircle className="w-4 h-4 md:w-5 md:h-5 text-green-700" />
+                    </div>
+                  </div>
+
+                  {/* Info do Cliente */}
+                  <div className="p-4 md:p-5 bg-white">
+                    <div className="flex items-center gap-3">
+                      {/* Avatar com iniciais */}
+                      <div className="w-10 h-10 md:w-12 md:h-12 rounded-full bg-gradient-to-br from-green-700 to-emerald-600 flex items-center justify-center text-white font-bold text-sm md:text-base flex-shrink-0">
+                        {testimonial.name.split(' ').map(n => n[0]).join('')}
                       </div>
-
-                      {/* Depoimento */}
-                      <p className="text-gray-700 text-base md:text-lg leading-relaxed mb-6 flex-1 italic">
-                        "{testimonial.text}"
-                      </p>
-
-                      {/* Autor */}
-                      <div className="pt-6 border-t border-gray-200">
-                        <div className="flex items-center gap-4">
-                          {/* Avatar com iniciais */}
-                          <div className="w-12 h-12 rounded-full bg-gradient-to-br from-green-700 to-emerald-600 flex items-center justify-center text-white font-bold text-lg flex-shrink-0">
-                            {testimonial.name.split(' ').map(n => n[0]).join('')}
-                          </div>
-                          <div>
-                            <h3 className="font-bold text-gray-900 text-lg">{testimonial.name}</h3>
-                            <p className="text-green-700 text-sm font-medium">{testimonial.age}</p>
-                          </div>
-                        </div>
-                      </div>
-
-                      {/* Ícone de verificado */}
-                      <div className="absolute top-6 right-6 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
-                        <div className="bg-green-100 p-2 rounded-full">
-                          <CheckCircle className="w-5 h-5 text-green-700" />
+                      <div className="flex-1">
+                        <h3 className="font-bold text-gray-900 text-base md:text-lg">{testimonial.name}</h3>
+                        <div className="flex gap-1 mt-1">
+                          {[...Array(5)].map((_, j) => (
+                            <Star key={j} className="w-3 h-3 md:w-4 md:h-4 fill-yellow-400 text-yellow-400" />
+                          ))}
                         </div>
                       </div>
                     </div>
                   </div>
+                  </div>
+                </div>
                 ))}
               </div>
             </div>
 
-            {/* Botão Próximo - Desktop */}
-            <button
-              onClick={() => setCurrentTestimonial((prev) => (prev === testimonials.length - 1 ? 0 : prev + 1))}
-              className="hidden lg:flex absolute right-0 top-1/2 -translate-y-1/2 z-10 bg-white hover:bg-gray-50 text-green-700 p-4 rounded-full shadow-xl border-2 border-green-200 transition-all hover:scale-110 hover:border-green-400 -mr-6"
-              aria-label="Próximo depoimento"
-            >
-              <ChevronRight className="w-6 h-6" />
-            </button>
+            {/* Container Desktop: Grid 3 Colunas */}
+            <div className="hidden lg:grid lg:grid-cols-3 gap-6 md:gap-8">
+              {videoTestimonials.map((testimonial, i) => (
+                <div
+                  key={i}
+                  className="group relative bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl border-2 border-gray-100 hover:border-green-200 transition-all duration-500 hover:-translate-y-2"
+                >
+                  {/* Card Quadrado com Vídeo - DESKTOP */}
+                  <div className="aspect-square relative bg-gradient-to-br from-gray-800 to-gray-900 overflow-hidden">
+                    {/* Vídeo */}
+                    <video
+                      controls
+                      controlsList="nodownload"
+                      className="w-full h-full object-cover"
+                      style={{ objectPosition: 'center' }}
+                      preload="metadata"
+                      playsInline
+                    >
+                      <source src={`/videos/${testimonial.video}`} type="video/mp4" />
+                      <source src={`/videos/${testimonial.video.replace('.mp4', '.webm')}`} type="video/webm" />
+                    </video>
 
-            {/* Botões Mobile - Abaixo dos cards */}
-            <div className="flex lg:hidden justify-center gap-4 mt-8">
-              <button
-                onClick={() => setCurrentTestimonial((prev) => (prev === 0 ? testimonials.length - 1 : prev - 1))}
-                className="bg-white hover:bg-gray-50 text-green-700 p-3 rounded-full shadow-lg border-2 border-green-200 transition-all active:scale-95"
-                aria-label="Depoimento anterior"
-              >
-                <ChevronLeft className="w-6 h-6" />
-              </button>
-              <button
-                onClick={() => setCurrentTestimonial((prev) => (prev === testimonials.length - 1 ? 0 : prev + 1))}
-                className="bg-white hover:bg-gray-50 text-green-700 p-3 rounded-full shadow-lg border-2 border-green-200 transition-all active:scale-95"
-                aria-label="Próximo depoimento"
-              >
-                <ChevronRight className="w-6 h-6" />
-              </button>
+                    {/* Badge de Resultado sobreposto */}
+                    <div className="absolute top-4 left-4 z-10">
+                      <div className="inline-flex items-center gap-2 bg-gradient-to-r from-green-700 to-emerald-600 text-white text-xs md:text-sm font-black px-3 py-1.5 rounded-full shadow-lg">
+                        <Zap className="w-3 h-3 md:w-4 md:h-4" />
+                        {testimonial.result}
+                      </div>
+                    </div>
+
+                    {/* Selo de verificado */}
+                    <div className="absolute top-4 right-4 z-10 bg-white/90 p-2 rounded-full">
+                      <CheckCircle className="w-4 h-4 md:w-5 md:h-5 text-green-700" />
+                    </div>
+                  </div>
+
+                  {/* Info do Cliente */}
+                  <div className="p-4 md:p-5 bg-white">
+                    <div className="flex items-center gap-3">
+                      {/* Avatar com iniciais */}
+                      <div className="w-10 h-10 md:w-12 md:h-12 rounded-full bg-gradient-to-br from-green-700 to-emerald-600 flex items-center justify-center text-white font-bold text-sm md:text-base flex-shrink-0">
+                        {testimonial.name.split(' ').map(n => n[0]).join('')}
+                      </div>
+                      <div className="flex-1">
+                        <h3 className="font-bold text-gray-900 text-base md:text-lg">{testimonial.name}</h3>
+                        <div className="flex gap-1 mt-1">
+                          {[...Array(5)].map((_, j) => (
+                            <Star key={j} className="w-3 h-3 md:w-4 md:h-4 fill-yellow-400 text-yellow-400" />
+                          ))}
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              ))}
             </div>
 
-            {/* Indicadores */}
-            <div className="flex justify-center gap-2 mt-8">
-              {testimonials.map((_, i) => (
+            {/* Indicadores - Mobile Only */}
+            <div className="lg:hidden flex justify-center gap-2 mt-6">
+              {videoTestimonials.map((_, i) => (
                 <button
                   key={i}
-                  onClick={() => setCurrentTestimonial(i)}
+                  onClick={() => setCurrentVideo(i)}
                   className={`h-2 rounded-full transition-all ${
-                    i === currentTestimonial
+                    i === currentVideo
                       ? 'w-8 bg-gradient-to-r from-green-700 to-emerald-600'
                       : 'w-2 bg-gray-300 hover:bg-gray-400'
                   }`}
-                  aria-label={`Ir para depoimento ${i + 1}`}
+                  aria-label={`Ir para vídeo ${i + 1}`}
                 />
               ))}
             </div>
+          </div>
+
+          {/* CTA após os vídeos */}
+          <div className="text-center mt-12">
+            <a
+              href="#comprar"
+              className="inline-flex items-center justify-center gap-3 bg-gradient-to-r from-green-700 via-emerald-600 to-green-700 text-white px-8 md:px-12 py-4 md:py-5 text-base md:text-lg font-black rounded-full shadow-xl hover:shadow-2xl transition-all duration-300 hover:scale-105"
+            >
+              QUERO MEUS RESULTADOS TAMBÉM
+              <ChevronRight className="w-5 h-5 md:w-6 md:h-6" />
+            </a>
           </div>
         </div>
       </section>
