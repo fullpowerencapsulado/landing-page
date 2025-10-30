@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Star, CheckCircle, Phone, Mail, Instagram, Facebook, MapPin, Clock, Shield } from 'lucide-react';
+import TropicalLeavesPattern from './TropicalLeavesPattern';
 
 export default function FullPowerLanding() {
   const [formData, setFormData] = useState({
@@ -239,6 +240,9 @@ export default function FullPowerLanding() {
           <div className="absolute inset-0 bg-gradient-to-b from-[#00d900]/10 via-transparent to-[#00d900]/20"></div>
           {/* Gradiente escuro de baixo para cima */}
           <div className="absolute inset-0 bg-gradient-to-t from-black via-black/60 to-transparent"></div>
+
+          {/* Textura de Folhas Tropicais */}
+          <TropicalLeavesPattern />
         </div>
 
         {/* Animated Particles */}
@@ -520,6 +524,9 @@ export default function FullPowerLanding() {
 
       {/* Formulário de Captura */}
       <section id="form" className="py-16 bg-white relative overflow-hidden">
+        {/* Textura de Folhas Tropicais de Fundo */}
+        <TropicalLeavesPattern />
+
         {/* Folhas PNG Animadas - Centralizadas ao Redor do Formulário */}
         <div className="absolute inset-0 pointer-events-none">
           {/* Folha 1 - Topo Esquerda do Formulário */}
@@ -1028,7 +1035,10 @@ export default function FullPowerLanding() {
       <section id="beneficios" className="py-20 bg-gradient-to-br from-green-700 via-emerald-500 to-green-700 text-white relative overflow-hidden">
         <div className="absolute top-0 right-0 w-64 h-64 bg-green-500 rounded-full opacity-20 blur-3xl"></div>
         <div className="absolute bottom-0 left-0 w-64 h-64 bg-emerald-400 rounded-full opacity-20 blur-3xl"></div>
-        
+
+        {/* Textura de Folhas Tropicais */}
+        <TropicalLeavesPattern />
+
         <div className="container mx-auto px-4 relative z-10">
           <h2 className="text-4xl md:text-5xl font-black text-center mb-4">
             E quais são seus benefícios?
