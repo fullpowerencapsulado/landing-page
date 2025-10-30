@@ -1031,13 +1031,37 @@ export default function FullPowerLanding() {
         </div>
       </section>
 
-      {/* Benefícios com Fundo Roxo */}
-      <section id="beneficios" className="py-20 bg-gradient-to-br from-green-700 via-emerald-500 to-green-700 text-white relative overflow-hidden">
-        <div className="absolute top-0 right-0 w-64 h-64 bg-green-500 rounded-full opacity-20 blur-3xl"></div>
-        <div className="absolute bottom-0 left-0 w-64 h-64 bg-emerald-400 rounded-full opacity-20 blur-3xl"></div>
+      {/* Benefícios com Fundo Igual Primeira Dobra */}
+      <section id="beneficios" className="py-20 text-white relative overflow-hidden">
+        {/* Background Image com Overlay Verde Vivo - Igual Primeira Dobra */}
+        <div className="absolute inset-0 z-0">
+          <div
+            className="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-90 mix-blend-hard-light"
+            style={{backgroundImage: "url('/bg_img.png')"}}
+          ></div>
+          {/* Gradiente forte da esquerda (texto) para direita (imagem visível) */}
+          <div className="absolute inset-0 bg-gradient-to-r from-[#00d900]/95 via-[#00d900]/60 via-30% to-transparent"></div>
+          <div className="absolute inset-0 bg-gradient-to-r from-[#00ff00]/30 via-[#00ff00]/15 via-30% to-transparent"></div>
+          <div className="absolute inset-0 bg-gradient-to-b from-[#00d900]/10 via-transparent to-[#00d900]/20"></div>
+          {/* Gradiente escuro de baixo para cima */}
+          <div className="absolute inset-0 bg-gradient-to-t from-black via-black/60 to-transparent"></div>
 
-        {/* Textura de Folhas Tropicais */}
-        <TropicalLeavesPattern />
+          {/* Textura de Folhas Tropicais */}
+          <TropicalLeavesPattern />
+        </div>
+
+        {/* Animated Particles */}
+        <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none">
+          <div className="particle particle-1"></div>
+          <div className="particle particle-2"></div>
+          <div className="particle particle-3"></div>
+          <div className="particle particle-4"></div>
+          <div className="particle particle-5"></div>
+        </div>
+
+        {/* Glowing Orbs */}
+        <div className="absolute top-20 right-20 w-64 h-64 bg-green-600 rounded-full opacity-20 blur-3xl animate-pulse-slow pointer-events-none hidden md:block"></div>
+        <div className="absolute bottom-20 left-20 w-96 h-96 bg-emerald-500 rounded-full opacity-10 blur-3xl animate-float pointer-events-none hidden md:block"></div>
 
         <div className="container mx-auto px-4 relative z-10">
           <h2 className="text-4xl md:text-5xl font-black text-center mb-4">
