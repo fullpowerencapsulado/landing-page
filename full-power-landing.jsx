@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { Star, CheckCircle, Phone, Mail, Instagram, Facebook, MapPin, Clock, Shield, ChevronLeft, ChevronRight, Users, Zap, Target, Sparkles, Leaf, Heart, Scale, Flame, ShoppingBag } from 'lucide-react';
 import TropicalLeavesPattern from './TropicalLeavesPattern';
 // import AIAssistant from './AIAssistant'; // Desabilitado temporariamente
@@ -29,6 +29,9 @@ export default function FullPowerLanding() {
   const [isScrolled, setIsScrolled] = useState(false); // Para mobile menu
   const [activeSection, setActiveSection] = useState('home'); // Seção ativa no menu
   const [timeLeft, setTimeLeft] = useState({ hours: 0, minutes: 0, seconds: 0 }); // Countdown timer
+
+  // Refs para controlar vídeos
+  const videoRefs = useRef([]);
 
   // Lazy loading e animações por seção
   const [sectionsVisible, setSectionsVisible] = useState({
@@ -279,6 +282,25 @@ export default function FullPowerLanding() {
       sections.forEach(section => observer.unobserve(section));
     };
   }, []);
+
+  // Pausar vídeo anterior quando trocar de vídeo no mobile
+  useEffect(() => {
+    // Pausa todos os vídeos no mobile quando mudar de vídeo
+    videoRefs.current.forEach((video, index) => {
+      if (video && index !== currentVideo) {
+        video.pause();
+      }
+    });
+  }, [currentVideo]);
+
+  // Função para pausar todos os outros vídeos quando um começa a tocar (desktop)
+  const handleVideoPlay = (playingIndex) => {
+    videoRefs.current.forEach((video, index) => {
+      if (video && index !== playingIndex && !video.paused) {
+        video.pause();
+      }
+    });
+  };
 
 
   // Funções de drag/swipe para carrossel de preços
@@ -2090,6 +2112,7 @@ export default function FullPowerLanding() {
                   <div className="aspect-square relative bg-gradient-to-br from-gray-800 to-gray-900 overflow-hidden">
                     {/* Vídeo */}
                     <video
+                      ref={(el) => (videoRefs.current[i] = el)}
                       controls
                       controlsList="nodownload"
                       className="w-full h-full object-cover"
@@ -2149,12 +2172,14 @@ export default function FullPowerLanding() {
                   <div className="aspect-square relative bg-gradient-to-br from-gray-800 to-gray-900 overflow-hidden">
                     {/* Vídeo */}
                     <video
+                      ref={(el) => (videoRefs.current[videoTestimonials.length + i] = el)}
                       controls
                       controlsList="nodownload"
                       className="w-full h-full object-cover"
                       style={{ objectPosition: 'center' }}
                       preload="metadata"
                       playsInline
+                      onPlay={() => handleVideoPlay(videoTestimonials.length + i)}
                     >
                       <source src={`/videos/${testimonial.video}`} type="video/mp4" />
                       <source src={`/videos/${testimonial.video.replace('.mp4', '.webm')}`} type="video/webm" />
