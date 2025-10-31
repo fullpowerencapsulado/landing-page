@@ -21,10 +21,6 @@
     <link rel="preload" href="/fontes/Barlow-ThinItalic.ttf" as="font" type="font/ttf" crossorigin />
     <link rel="preload" href="/fontes/Barlow-BoldItalic.ttf" as="font" type="font/ttf" crossorigin />
 
-    <!-- Preload imagens LCP críticas -->
-    <link rel="preload" href="/encapsulado_transparente.webp" as="image" type="image/webp" fetchpriority="high" />
-    <link rel="preload" href="/bg_img.webp" as="image" type="image/webp" />
-
     <!-- Fonte Google removida - usando apenas fontes locais para velocidade -->
     <title>Full Power - Emagreça Naturalmente | Composto 100% Natural</title>
 
@@ -37,7 +33,7 @@
       @font-face{font-family:'BarlowThinItalic';src:url('/fontes/Barlow-ThinItalic.ttf') format('truetype');font-weight:100;font-style:italic;font-display:swap}
       @font-face{font-family:'BarlowBoldItalic';src:url('/fontes/Barlow-BoldItalic.ttf') format('truetype');font-weight:700;font-style:italic;font-display:swap}
       #loading{position:fixed;inset:0;background:#000;display:flex;align-items:center;justify-content:center;z-index:9999;transition:opacity .3s}
-      #loading.hide{opacity:0.01;pointer-events:none}
+      #loading.hide{opacity:0;pointer-events:none}
       .spin{animation:s .8s linear infinite;display:block}
       @keyframes s{to{transform:rotate(360deg)}}
     </style>
@@ -59,19 +55,7 @@
       </svg>
     </div>
 
-    <div id="root">
-      <!-- Conteúdo inicial para LCP - Será substituído pelo React -->
-      <div style="position:relative;min-height:100vh;background:#000;display:flex;align-items:center;justify-content:center;overflow:hidden">
-        <div style="position:absolute;inset:0;background-image:url('/bg_img.webp');background-size:cover;background-position:right 20% center;opacity:0.9;mix-blend-mode:hard-light"></div>
-        <div style="position:absolute;inset:0;background:linear-gradient(to right,rgba(0,217,0,0.95),rgba(0,217,0,0.6) 30%,transparent)"></div>
-        <div style="position:relative;z-index:10;max-width:1280px;margin:0 auto;padding:0 1rem;display:grid;grid-template-columns:1fr;gap:2rem;align-items:center">
-          <div style="text-align:center">
-            <h1 style="font-size:clamp(3rem,10vw,6rem);font-weight:900;color:#F2F2F2;line-height:0.9;text-transform:uppercase;margin-bottom:1rem;text-shadow:2px 2px 4px rgba(0,0,0,0.3)">TRANSFORME<br>SEU<br>CORPO</h1>
-            <img src="/encapsulado_transparente.webp" alt="Full Power - Encapsulado Natural" width="400" height="600" style="max-width:100%;height:auto;margin:2rem auto;filter:drop-shadow(0 20px 40px rgba(34,197,94,0.4))" fetchpriority="high" />
-          </div>
-        </div>
-      </div>
-    </div>
+    <div id="root"></div>
 
     <script type="module" src="/main.jsx"></script>
 

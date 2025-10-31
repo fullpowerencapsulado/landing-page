@@ -437,7 +437,7 @@ export default function FullPowerLanding() {
         </div>
       )}
 
-      <div className={`min-h-screen bg-black md:bg-white transition-opacity duration-500 pb-20 md:pb-0 ${isLoading ? 'opacity-[0.01]' : 'opacity-100'}`}>
+      <div className={`min-h-screen bg-black md:bg-white transition-opacity duration-500 pb-20 md:pb-0 ${isLoading ? 'opacity-0' : 'opacity-100'}`}>
         {/* Countdown Timer - Fixed Top (Todas as dobras) - Compacto - MOBILE ONLY */}
         <div className="md:hidden fixed top-0 left-0 right-0 z-[60] w-full px-2 py-1.5" style={{background: '#0a0a0a'}}>
           <div className="flex items-center justify-center gap-2">
@@ -674,8 +674,6 @@ export default function FullPowerLanding() {
           <img
             src="/fita-esquerda2.webp"
             alt="Fita Métrica"
-            width="200"
-            height="600"
             className="w-auto h-[500px] xl:h-[600px] object-contain opacity-90"
             loading="lazy"
             decoding="async"
@@ -692,8 +690,6 @@ export default function FullPowerLanding() {
           <img
             src="/fita-esquerda.webp"
             alt="Fita Métrica"
-            width="200"
-            height="500"
             className="w-auto h-[400px] xl:h-[500px] object-contain opacity-90"
             loading="lazy"
             decoding="async"
@@ -710,7 +706,7 @@ export default function FullPowerLanding() {
             {/* Container com texto e pote sobrepostos - Mobile */}
             <div className="lg:hidden relative min-h-[550px] flex flex-col justify-center">
               {/* Pote posicionado à direita com sobreposição */}
-              <div className={`absolute -right-12 top-6 w-[85%] max-w-lg h-full flex items-center justify-end ${!isLoading ? 'animate-enter-product' : 'opacity-[0.01]'}`} style={{zIndex: 1}}>
+              <div className={`absolute -right-12 top-6 w-[85%] max-w-lg h-full flex items-center justify-end ${!isLoading ? 'animate-enter-product' : 'opacity-0'}`} style={{zIndex: 1}}>
                 <div className="relative w-full h-[550px] flex items-center justify-center">
                   {/* Glow Effect */}
                   <div className="absolute inset-0 bg-gradient-to-r from-green-700 to-emerald-600 rounded-full blur-3xl opacity-20 animate-pulse-slow"></div>
@@ -720,8 +716,6 @@ export default function FullPowerLanding() {
                     <img
                       src="/encapsulado_transparente.webp"
                       alt="Full Power - Encapsulado Natural"
-                      width="400"
-                      height="600"
                       className="w-full h-auto drop-shadow-2xl animate-float-product"
                       fetchpriority="high"
                       decoding="async"
@@ -753,19 +747,19 @@ export default function FullPowerLanding() {
                 {/* Título Principal com Animação */}
                 <div className="space-y-0" key={`title-${currentSlide}`}>
                   <h1 className="text-8xl sm:text-9xl md:text-6xl font-black leading-[0.85] tracking-tight">
-                    <span className={`block text-[#F2F2F2] uppercase barlow-font ${!isLoading ? 'animate-enter-title-1' : 'opacity-[0.01]'}`} style={{textShadow: '2px 2px 4px rgba(0,0,0,0.3)'}}>
+                    <span className={`block text-[#F2F2F2] uppercase barlow-font ${!isLoading ? 'animate-enter-title-1' : 'opacity-0'}`} style={{textShadow: '2px 2px 4px rgba(0,0,0,0.3)'}}>
                       {slides[currentSlide].title1}
                     </span>
                     {slides[currentSlide].title1b && (
-                      <span className={`block text-[#F2F2F2] uppercase barlow-font ${!isLoading ? 'animate-enter-title-1' : 'opacity-[0.01]'}`} style={{textShadow: '2px 2px 4px rgba(0,0,0,0.3)'}}>
+                      <span className={`block text-[#F2F2F2] uppercase barlow-font ${!isLoading ? 'animate-enter-title-1' : 'opacity-0'}`} style={{textShadow: '2px 2px 4px rgba(0,0,0,0.3)'}}>
                         {slides[currentSlide].title1b}
                       </span>
                     )}
-                    <span className={`block text-[#F2F2F2] uppercase barlow-font ${!isLoading ? 'animate-enter-title-2' : 'opacity-[0.01]'}`} style={{textShadow: '2px 2px 4px rgba(0,0,0,0.3)'}}>
+                    <span className={`block text-[#F2F2F2] uppercase barlow-font ${!isLoading ? 'animate-enter-title-2' : 'opacity-0'}`} style={{textShadow: '2px 2px 4px rgba(0,0,0,0.3)'}}>
                       {slides[currentSlide].title2}
                     </span>
                     {slides[currentSlide].title3 && (
-                      <span className={`block text-[#F2F2F2] uppercase barlow-font ${!isLoading ? 'animate-enter-title-2' : 'opacity-[0.01]'}`} style={{textShadow: '2px 2px 4px rgba(0,0,0,0.3)'}}>
+                      <span className={`block text-[#F2F2F2] uppercase barlow-font ${!isLoading ? 'animate-enter-title-2' : 'opacity-0'}`} style={{textShadow: '2px 2px 4px rgba(0,0,0,0.3)'}}>
                         {slides[currentSlide].title3}
                       </span>
                     )}
@@ -773,7 +767,7 @@ export default function FullPowerLanding() {
                 </div>
 
                 {/* Subtítulo */}
-                <div key={`subtitle-${currentSlide}`} className={`text-3xl sm:text-2xl text-center text-[#F2F2F2] leading-tight max-w-sm barlow-thin-italic-font ${!isLoading ? 'animate-enter-subtitle' : 'opacity-[0.01]'}`}>
+                <div key={`subtitle-${currentSlide}`} className={`text-3xl sm:text-2xl text-center text-[#F2F2F2] leading-tight max-w-sm barlow-thin-italic-font ${!isLoading ? 'animate-enter-subtitle' : 'opacity-0'}`}>
                   {currentSlide === 0 ? (
                     <>
                       <p className="block">O <span className="barlow-bold-italic-font">composto revolucionário</span></p>
@@ -794,17 +788,17 @@ export default function FullPowerLanding() {
               {/* Título Principal com Animação */}
               <div className="space-y-0" key={`title-desktop-${currentSlide}`}>
                 <h1 className="text-5xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-black leading-tight lg:leading-[0.9] tracking-tight">
-                  <span className={`block text-[#F2F2F2] uppercase barlow-font mb-3 lg:mb-0 ${!isLoading ? 'animate-enter-title-1' : 'opacity-[0.01]'}`} style={{textShadow: '2px 2px 4px rgba(0,0,0,0.3)'}}>
+                  <span className={`block text-[#F2F2F2] uppercase barlow-font mb-3 lg:mb-0 ${!isLoading ? 'animate-enter-title-1' : 'opacity-0'}`} style={{textShadow: '2px 2px 4px rgba(0,0,0,0.3)'}}>
                     {slides[currentSlide].title1Desktop || slides[currentSlide].title1}
                   </span>
-                  <span className={`block text-[#F2F2F2] uppercase barlow-font ${!isLoading ? 'animate-enter-title-2' : 'opacity-[0.01]'}`} style={{textShadow: '2px 2px 4px rgba(0,0,0,0.3)'}}>
+                  <span className={`block text-[#F2F2F2] uppercase barlow-font ${!isLoading ? 'animate-enter-title-2' : 'opacity-0'}`} style={{textShadow: '2px 2px 4px rgba(0,0,0,0.3)'}}>
                     {slides[currentSlide].title2}{slides[currentSlide].title3 ? ` ${slides[currentSlide].title3}` : ''}
                   </span>
                 </h1>
               </div>
 
               {/* Subtítulo */}
-              <div key={`subtitle-desktop-${currentSlide}`} className={`text-lg sm:text-2xl md:text-3xl lg:text-4xl text-[#F2F2F2] leading-tight lg:leading-tight max-w-2xl barlow-thin-italic-font ${!isLoading ? 'animate-enter-subtitle' : 'opacity-[0.01]'}`}>
+              <div key={`subtitle-desktop-${currentSlide}`} className={`text-lg sm:text-2xl md:text-3xl lg:text-4xl text-[#F2F2F2] leading-tight lg:leading-tight max-w-2xl barlow-thin-italic-font ${!isLoading ? 'animate-enter-subtitle' : 'opacity-0'}`}>
                 {currentSlide === 0 ? (
                   <>
                     <p className="block">O <span className="barlow-bold-italic-font">composto revolucionário</span></p>
@@ -826,7 +820,7 @@ export default function FullPowerLanding() {
               <div key={`buttons-${currentSlide}`} className="flex flex-col gap-3 sm:gap-4 relative z-20">
                 <a
                   href="#form"
-                  className={`cta-button-premium group relative inline-flex items-center justify-center px-8 sm:px-12 py-4 sm:py-5 text-base sm:text-lg font-black rounded-full overflow-hidden transition-all duration-500 transform hover:scale-105 w-full sm:w-auto ${!isLoading ? 'animate-enter-button-1' : 'opacity-[0.01]'}`}
+                  className={`cta-button-premium group relative inline-flex items-center justify-center px-8 sm:px-12 py-4 sm:py-5 text-base sm:text-lg font-black rounded-full overflow-hidden transition-all duration-500 transform hover:scale-105 w-full sm:w-auto ${!isLoading ? 'animate-enter-button-1' : 'opacity-0'}`}
                 >
                   {/* Gradiente animado de fundo */}
                   <div className="absolute inset-0 bg-gradient-to-r from-green-700 via-emerald-600 via-lime-600 to-green-700 bg-[length:200%_100%] animate-gradient-flow"></div>
@@ -860,7 +854,7 @@ export default function FullPowerLanding() {
 
                 <a
                   href="#depoimentos"
-                  className={`group relative inline-flex items-center justify-center px-8 sm:px-12 py-4 sm:py-5 text-base sm:text-lg font-bold rounded-full border-2 border-white/30 backdrop-blur-sm hover:bg-white/10 hover:border-white/50 transition-all duration-300 hover:scale-105 w-full sm:w-auto ${!isLoading ? 'animate-enter-button-2' : 'opacity-[0.01]'}`}
+                  className={`group relative inline-flex items-center justify-center px-8 sm:px-12 py-4 sm:py-5 text-base sm:text-lg font-bold rounded-full border-2 border-white/30 backdrop-blur-sm hover:bg-white/10 hover:border-white/50 transition-all duration-300 hover:scale-105 w-full sm:w-auto ${!isLoading ? 'animate-enter-button-2' : 'opacity-0'}`}
                 >
                   <span className="flex items-center gap-2 text-white">
                     Ver Resultados
@@ -870,7 +864,7 @@ export default function FullPowerLanding() {
               </div>
 
               {/* Social Proof - Oculto no mobile */}
-              <div key={`social-${currentSlide}`} className={`hidden lg:flex flex-wrap items-center gap-4 sm:gap-6 pt-3 sm:pt-6 ${!isLoading ? 'animate-enter-social' : 'opacity-[0.01]'}`}>
+              <div key={`social-${currentSlide}`} className={`hidden lg:flex flex-wrap items-center gap-4 sm:gap-6 pt-3 sm:pt-6 ${!isLoading ? 'animate-enter-social' : 'opacity-0'}`}>
                 <div className="flex -space-x-2 sm:-space-x-3">
                   {[1,2,3,4].map((i) => (
                     <div key={i} className="w-8 h-8 sm:w-10 sm:h-10 rounded-full bg-gradient-to-br from-green-500 to-emerald-400 border-2 border-black flex items-center justify-center text-white text-xs sm:text-sm font-bold">
@@ -892,7 +886,7 @@ export default function FullPowerLanding() {
             </div>
 
             {/* Product Showcase Desktop - Responsivo com Flutuação */}
-            <div className={`relative hidden lg:flex justify-center items-center ${!isLoading ? 'animate-enter-product' : 'opacity-[0.01]'}`}>
+            <div className={`relative hidden lg:flex justify-center items-center ${!isLoading ? 'animate-enter-product' : 'opacity-0'}`}>
               {/* Seta Esquerda */}
               <button
                 onClick={prevSlide}
@@ -911,7 +905,7 @@ export default function FullPowerLanding() {
                 {/* Container para as imagens empilhadas como cartas de baralho */}
                 <div className="relative z-10 w-full max-w-2xl">
                   {/* Lista de Benefícios Rápidos - Abaixo da Imagem */}
-                  <div key={`pills-${currentSlide}`} className={`absolute bottom-32 left-1/2 -translate-x-1/2 z-[15] flex flex-col gap-3 ${!isLoading ? 'animate-enter-pills' : 'opacity-[0.01]'}`}>
+                  <div key={`pills-${currentSlide}`} className={`absolute bottom-32 left-1/2 -translate-x-1/2 z-[15] flex flex-col gap-3 ${!isLoading ? 'animate-enter-pills' : 'opacity-0'}`}>
                     {slides[currentSlide].pills.map((benefit, i) => (
                       <div key={i} className="flex items-center gap-2 bg-white/10 backdrop-blur-sm border border-white/20 px-4 py-2 rounded-full hover:bg-white/20 transition-all duration-300 hover:scale-105"
                            style={{animationDelay: `${i * 0.1}s`, textShadow: '1px 1px 2px rgba(0,0,0,0.3)', boxShadow: '0 2px 8px rgba(0,0,0,0.2)'}}>
@@ -923,7 +917,7 @@ export default function FullPowerLanding() {
 
                   {/* Imagem do Produto TRASEIRA - Rotacionada como carta de baralho */}
                   <div
-                    className={`absolute inset-0 z-[5] ${!isLoading ? 'product-floating-back' : 'opacity-[0.01]'}`}
+                    className={`absolute inset-0 z-[5] ${!isLoading ? 'product-floating-back' : 'opacity-0'}`}
                     style={{
                       transform: `translate(${-mousePosition.x * 15 - 80}px, ${-mousePosition.y * 15}px) rotate(-18deg) scale(0.92)`,
                       transition: 'transform 0.25s ease-out',
@@ -933,8 +927,6 @@ export default function FullPowerLanding() {
                     <img
                       src="/encapsulado_transparente.webp"
                       alt="Full Power - Encapsulado Natural Background"
-                      width="400"
-                      height="600"
                       className="w-full h-auto drop-shadow-xl animate-float-product-back"
                       fetchpriority="high"
                       decoding="async"
@@ -946,7 +938,7 @@ export default function FullPowerLanding() {
 
                   {/* Imagem do Produto FRONTAL com Efeito de Flutuação */}
                   <div
-                    className={`relative z-[10] ${!isLoading ? 'product-floating-front' : 'opacity-[0.01]'}`}
+                    className={`relative z-[10] ${!isLoading ? 'product-floating-front' : 'opacity-0'}`}
                     style={{
                       transform: `translate(${mousePosition.x * 30}px, ${mousePosition.y * 30}px)`,
                       transition: 'transform 0.2s ease-out',
@@ -956,8 +948,6 @@ export default function FullPowerLanding() {
                     <img
                       src="/encapsulado_transparente.webp"
                       alt="Full Power - Encapsulado Natural"
-                      width="400"
-                      height="600"
                       className="w-full h-auto drop-shadow-2xl animate-float-product"
                       fetchpriority="high"
                       decoding="async"
@@ -1086,8 +1076,6 @@ export default function FullPowerLanding() {
             <img
               src="/icin2.webp"
               alt="Folha decorativa"
-              width="96"
-              height="96"
               loading="lazy"
               decoding="async"
               className="w-18 h-18 md:w-24 md:h-24 object-contain"
@@ -1110,8 +1098,6 @@ export default function FullPowerLanding() {
             <img
               src="/icin3.webp"
               alt="Folha decorativa"
-              width="120"
-              height="120"
               loading="lazy"
               decoding="async"
               className="w-22 h-22 md:w-30 md:h-30 object-contain"
@@ -1134,8 +1120,6 @@ export default function FullPowerLanding() {
             <img
               src="/icon4.webp"
               alt="Folha decorativa"
-              width="136"
-              height="136"
               loading="lazy"
               decoding="async"
               className="w-24 h-24 md:w-34 md:h-34 object-contain"
@@ -1158,8 +1142,6 @@ export default function FullPowerLanding() {
             <img
               src="/icon5.webp"
               alt="Folha decorativa"
-              width="104"
-              height="104"
               loading="lazy"
               decoding="async"
               className="w-18 h-18 md:w-26 md:h-26 object-contain"
@@ -1226,8 +1208,6 @@ export default function FullPowerLanding() {
             <img
               src="/icin2.webp"
               alt="Folha decorativa"
-              width="120"
-              height="120"
               loading="lazy"
               decoding="async"
               className="w-22 h-22 md:w-30 md:h-30 object-contain"
@@ -1250,8 +1230,6 @@ export default function FullPowerLanding() {
             <img
               src="/icin3.webp"
               alt="Folha decorativa"
-              width="128"
-              height="128"
               loading="lazy"
               decoding="async"
               className="w-24 h-24 md:w-32 md:h-32 object-contain"
@@ -1274,8 +1252,6 @@ export default function FullPowerLanding() {
             <img
               src="/icon4.webp"
               alt="Folha decorativa"
-              width="136"
-              height="136"
               loading="lazy"
               decoding="async"
               className="w-26 h-26 md:w-34 md:h-34 object-contain"
@@ -2141,9 +2117,8 @@ export default function FullPowerLanding() {
                       controlsList="nodownload"
                       className="w-full h-full object-cover"
                       style={{ objectPosition: 'center' }}
-                      preload="none"
+                      preload="metadata"
                       playsInline
-                      loading="lazy"
                     >
                       <source src={`/videos/${testimonial.video}`} type="video/mp4" />
                       <source src={`/videos/${testimonial.video.replace('.mp4', '.webm')}`} type="video/webm" />
@@ -2202,9 +2177,8 @@ export default function FullPowerLanding() {
                       controlsList="nodownload"
                       className="w-full h-full object-cover"
                       style={{ objectPosition: 'center' }}
-                      preload="none"
+                      preload="metadata"
                       playsInline
-                      loading="lazy"
                       onPlay={() => handleVideoPlay(videoTestimonials.length + i)}
                     >
                       <source src={`/videos/${testimonial.video}`} type="video/mp4" />
@@ -2630,17 +2604,17 @@ export default function FullPowerLanding() {
 
         /* Animações de Entrada */
         @keyframes fade-in {
-          from { opacity: 0.01; transform: translateY(20px); }
+          from { opacity: 0; transform: translateY(20px); }
           to { opacity: 1; transform: translateY(0); }
         }
 
         @keyframes slide-up {
-          from { opacity: 0.01; transform: translateY(40px); }
+          from { opacity: 0; transform: translateY(40px); }
           to { opacity: 1; transform: translateY(0); }
         }
 
         @keyframes slide-down {
-          from { opacity: 0.01; transform: translateY(-20px); }
+          from { opacity: 0; transform: translateY(-20px); }
           to { opacity: 1; transform: translateY(0); }
         }
 
@@ -2859,7 +2833,7 @@ export default function FullPowerLanding() {
 
         @keyframes enter-product-front {
           from {
-            opacity: 0.01;
+            opacity: 0;
             transform: translateY(150px);
           }
           to {
@@ -2875,7 +2849,7 @@ export default function FullPowerLanding() {
 
         @keyframes enter-product-back {
           0% {
-            opacity: 0.01;
+            opacity: 0;
             transform: translateX(200px) rotate(-18deg) scale(0.92);
           }
           100% {
@@ -3465,7 +3439,7 @@ export default function FullPowerLanding() {
         /* Animações de Entrada - Primeira Dobra */
         @keyframes enter-from-left {
           from {
-            opacity: 0.01;
+            opacity: 0;
             transform: translateX(-50px);
           }
           to {
@@ -3476,7 +3450,7 @@ export default function FullPowerLanding() {
 
         @keyframes enter-from-right {
           from {
-            opacity: 0.01;
+            opacity: 0;
             transform: translateX(50px);
           }
           to {
@@ -3487,7 +3461,7 @@ export default function FullPowerLanding() {
 
         @keyframes enter-from-top {
           from {
-            opacity: 0.01;
+            opacity: 0;
             transform: translateY(-30px);
           }
           to {
@@ -3498,7 +3472,7 @@ export default function FullPowerLanding() {
 
         @keyframes enter-from-bottom {
           from {
-            opacity: 0.01;
+            opacity: 0;
             transform: translateY(30px);
           }
           to {
@@ -3509,7 +3483,7 @@ export default function FullPowerLanding() {
 
         @keyframes enter-scale {
           from {
-            opacity: 0.01;
+            opacity: 0;
             transform: scale(0.8);
           }
           to {
