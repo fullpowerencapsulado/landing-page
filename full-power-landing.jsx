@@ -803,7 +803,7 @@ export default function FullPowerLanding() {
                   <>
                     <p className="block">O <span className="barlow-bold-italic-font">composto revolucionário</span></p>
                     <p className="block">que <span className="barlow-bold-italic-font">acelera seu metabolismo</span></p>
-                    <p className="block">e <span className="barlow-bold-italic-font">elimina gorduras</span> de forma natural e definitiva</p>
+                    <p className="block">e <span className="barlow-bold-italic-font">elimina gorduras</span> de forma natural e definitiva!</p>
                   </>
                 ) : (
                   slides[currentSlide].subtitle.map((line, i) => (
@@ -973,7 +973,7 @@ export default function FullPowerLanding() {
                 </div>
 
                 <div
-                  className="absolute bottom-16 left-8 bg-gradient-to-br from-green-400 to-emerald-500 rounded-2xl p-4 shadow-2xl animate-float-badge-2 border-4 border-white/20 z-20"
+                  className="absolute bottom-28 left-8 bg-gradient-to-br from-green-400 to-emerald-500 rounded-2xl p-4 shadow-2xl animate-float-badge-2 border-4 border-white/20 z-20"
                   style={{
                     transform: `translate(${mousePosition.x * -20}px, ${mousePosition.y * -20}px)`,
                     transition: 'transform 0.25s ease-out'
