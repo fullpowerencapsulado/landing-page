@@ -19,7 +19,7 @@ export default function FullPowerLanding() {
   const [proofsVisible, setProofsVisible] = useState(false);
   const [currentTestimonial, setCurrentTestimonial] = useState(0);
   const [currentVideo, setCurrentVideo] = useState(0); // Carrossel de vídeos no mobile
-  const [currentPricing, setCurrentPricing] = useState(1); // Começa com kit 3 potes (índice 1)
+  const [currentPricing, setCurrentPricing] = useState(0); // Começa com kit 1 pote (índice 0)
   const [pricingDragStart, setPricingDragStart] = useState(null);
   const [pricingIsDragging, setPricingIsDragging] = useState(false);
   const [selectedStep, setSelectedStep] = useState(0); // Para seção "Como tomar"

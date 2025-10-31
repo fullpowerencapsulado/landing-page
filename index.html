@@ -34,13 +34,26 @@
       @font-face{font-family:'BarlowBoldItalic';src:url('/fontes/Barlow-BoldItalic.ttf') format('truetype');font-weight:700;font-style:italic;font-display:swap}
       #loading{position:fixed;inset:0;background:#000;display:flex;align-items:center;justify-content:center;z-index:9999;transition:opacity .3s}
       #loading.hide{opacity:0;pointer-events:none}
-      .spin{width:50px;height:50px;border:4px solid rgba(0,217,0,.1);border-top-color:#00d900;border-radius:50%;animation:s .8s linear infinite}
+      .spin{animation:s .8s linear infinite;display:block}
       @keyframes s{to{transform:rotate(360deg)}}
     </style>
   </head>
   <body>
     <!-- Loading ultra rápido -->
-    <div id="loading"><div class="spin"></div></div>
+    <div id="loading">
+      <svg class="spin" width="50" height="50" viewBox="0 0 100 100">
+        <defs>
+          <linearGradient id="loaderGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stop-color="#22c55e" />
+            <stop offset="50%" stop-color="#34d399" />
+            <stop offset="100%" stop-color="#10b981" />
+          </linearGradient>
+        </defs>
+        <circle cx="50" cy="50" r="45" fill="none" stroke="url(#loaderGrad)"
+                stroke-width="4" stroke-linecap="round" stroke-dasharray="70 200"
+                opacity="0.9" />
+      </svg>
+    </div>
 
     <div id="root"></div>
 
