@@ -986,7 +986,7 @@ export default function FullPowerLanding() {
                 </div>
 
                 <div
-                  className="absolute top-1/2 right-4 bg-gradient-to-br from-green-600 to-emerald-500 rounded-2xl p-3 shadow-2xl animate-float-badge-3 z-20"
+                  className="absolute top-[58%] right-4 bg-gradient-to-br from-green-600 to-emerald-500 rounded-2xl p-3 shadow-2xl animate-float-badge-3 z-20"
                   style={{
                     transform: `translate(${mousePosition.x * 18}px, ${mousePosition.y * -18}px) translateY(-50%)`,
                     transition: 'transform 0.25s ease-out'
