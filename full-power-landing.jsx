@@ -335,7 +335,6 @@ export default function FullPowerLanding() {
 
   // Vídeos de depoimentos - Vídeos reais da pasta public/videos
   const videoTestimonials = [
-    { video: 'WhatsApp Video 2025-10-30 at 16.15.10.mp4', name: "Amanda Oliveira", result: "-8kg em 6 semanas" },
     { video: 'WhatsApp Video 2025-10-30 at 16.15.11.mp4', name: "Carla Mendes", result: "-6kg em 4 semanas" },
     { video: 'WhatsApp Video 2025-10-30 at 16.15.12.mp4', name: "Juliana Santos", result: "-10kg em 2 meses" },
     { video: 'WhatsApp Video 2025-10-30 at 16.15.12 (1).mp4', name: "Patrícia Costa", result: "-9kg no total" },
