@@ -798,7 +798,7 @@ export default function FullPowerLanding() {
               </div>
 
               {/* Subtítulo */}
-              <div key={`subtitle-desktop-${currentSlide}`} className={`text-lg sm:text-2xl md:text-4xl lg:text-5xl text-[#F2F2F2] leading-tight lg:leading-tight max-w-xl barlow-thin-italic-font ${!isLoading ? 'animate-enter-subtitle' : 'opacity-0'}`}>
+              <div key={`subtitle-desktop-${currentSlide}`} className={`text-lg sm:text-2xl md:text-3xl lg:text-4xl text-[#F2F2F2] leading-tight lg:leading-tight max-w-2xl barlow-thin-italic-font ${!isLoading ? 'animate-enter-subtitle' : 'opacity-0'}`}>
                 {currentSlide === 0 ? (
                   <>
                     <p className="block">O <span className="barlow-bold-italic-font">composto revolucionário</span></p>
