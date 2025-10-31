@@ -674,6 +674,8 @@ export default function FullPowerLanding() {
           <img
             src="/fita-esquerda2.webp"
             alt="Fita Métrica"
+            width="200"
+            height="600"
             className="w-auto h-[500px] xl:h-[600px] object-contain opacity-90"
             loading="lazy"
             decoding="async"
@@ -690,6 +692,8 @@ export default function FullPowerLanding() {
           <img
             src="/fita-esquerda.webp"
             alt="Fita Métrica"
+            width="200"
+            height="500"
             className="w-auto h-[400px] xl:h-[500px] object-contain opacity-90"
             loading="lazy"
             decoding="async"
@@ -1082,6 +1086,8 @@ export default function FullPowerLanding() {
             <img
               src="/icin2.webp"
               alt="Folha decorativa"
+              width="96"
+              height="96"
               loading="lazy"
               decoding="async"
               className="w-18 h-18 md:w-24 md:h-24 object-contain"
@@ -1104,6 +1110,8 @@ export default function FullPowerLanding() {
             <img
               src="/icin3.webp"
               alt="Folha decorativa"
+              width="120"
+              height="120"
               loading="lazy"
               decoding="async"
               className="w-22 h-22 md:w-30 md:h-30 object-contain"
@@ -1126,6 +1134,8 @@ export default function FullPowerLanding() {
             <img
               src="/icon4.webp"
               alt="Folha decorativa"
+              width="136"
+              height="136"
               loading="lazy"
               decoding="async"
               className="w-24 h-24 md:w-34 md:h-34 object-contain"
@@ -1148,6 +1158,8 @@ export default function FullPowerLanding() {
             <img
               src="/icon5.webp"
               alt="Folha decorativa"
+              width="104"
+              height="104"
               loading="lazy"
               decoding="async"
               className="w-18 h-18 md:w-26 md:h-26 object-contain"
@@ -1214,6 +1226,8 @@ export default function FullPowerLanding() {
             <img
               src="/icin2.webp"
               alt="Folha decorativa"
+              width="120"
+              height="120"
               loading="lazy"
               decoding="async"
               className="w-22 h-22 md:w-30 md:h-30 object-contain"
@@ -1236,6 +1250,8 @@ export default function FullPowerLanding() {
             <img
               src="/icin3.webp"
               alt="Folha decorativa"
+              width="128"
+              height="128"
               loading="lazy"
               decoding="async"
               className="w-24 h-24 md:w-32 md:h-32 object-contain"
@@ -1258,6 +1274,8 @@ export default function FullPowerLanding() {
             <img
               src="/icon4.webp"
               alt="Folha decorativa"
+              width="136"
+              height="136"
               loading="lazy"
               decoding="async"
               className="w-26 h-26 md:w-34 md:h-34 object-contain"
@@ -2123,8 +2141,9 @@ export default function FullPowerLanding() {
                       controlsList="nodownload"
                       className="w-full h-full object-cover"
                       style={{ objectPosition: 'center' }}
-                      preload="metadata"
+                      preload="none"
                       playsInline
+                      loading="lazy"
                     >
                       <source src={`/videos/${testimonial.video}`} type="video/mp4" />
                       <source src={`/videos/${testimonial.video.replace('.mp4', '.webm')}`} type="video/webm" />
@@ -2183,8 +2202,9 @@ export default function FullPowerLanding() {
                       controlsList="nodownload"
                       className="w-full h-full object-cover"
                       style={{ objectPosition: 'center' }}
-                      preload="metadata"
+                      preload="none"
                       playsInline
+                      loading="lazy"
                       onPlay={() => handleVideoPlay(videoTestimonials.length + i)}
                     >
                       <source src={`/videos/${testimonial.video}`} type="video/mp4" />

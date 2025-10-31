@@ -25,25 +25,42 @@ export default defineConfig(({ mode }) => {
       compress: {
         drop_console: true,
         drop_debugger: true,
-        pure_funcs: ['console.log', 'console.info'],
-        passes: 2
+        pure_funcs: ['console.log', 'console.info', 'console.warn'],
+        passes: 3,
+        dead_code: true,
+        unused: true,
+        side_effects: false
       },
       mangle: {
         safari10: true
+      },
+      format: {
+        comments: false
       }
     },
 
     rollupOptions: {
       output: {
-        manualChunks: {
-          // Vendor splitting para melhor cache
-          'react-vendor': ['react', 'react-dom'],
-          'icons': ['lucide-react']
+        manualChunks(id) {
+          // Code splitting mais agressivo
+          if (id.includes('node_modules')) {
+            if (id.includes('react') || id.includes('react-dom')) {
+              return 'react-vendor';
+            }
+            if (id.includes('lucide-react')) {
+              return 'icons';
+            }
+            return 'vendor';
+          }
         },
         // Nomes de arquivos com hash para cache
         chunkFileNames: 'assets/[name]-[hash].js',
         entryFileNames: 'assets/[name]-[hash].js',
         assetFileNames: 'assets/[name]-[hash].[ext]'
+      },
+      treeshake: {
+        moduleSideEffects: false,
+        propertyReadSideEffects: false
       }
     },
 
@@ -54,10 +71,13 @@ export default defineConfig(({ mode }) => {
     sourcemap: false,
 
     // Chunk size warnings
-    chunkSizeWarningLimit: 600,
+    chunkSizeWarningLimit: 500,
 
     // Otimizar assets
-    assetsInlineLimit: 4096, // < 4kb vira base64 inline
+    assetsInlineLimit: 2048, // < 2kb vira base64 inline (reduzido para menos requisições)
+
+    // Reportar tamanho comprimido
+    reportCompressedSize: true
   },
 
   // Otimizações de resolução
