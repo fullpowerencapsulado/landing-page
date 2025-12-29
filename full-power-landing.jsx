@@ -2382,7 +2382,7 @@ export default function FullPowerLanding() {
                           </div>
 
                           {isCenter && (
-                            <button className="group relative w-full inline-flex items-center justify-center px-6 py-3 text-base font-black rounded-full overflow-hidden transition-all duration-500 transform hover:scale-105">
+                            <a href="https://wa.me/5548996899105?text=Ol%C3%A1!%20Tenho%20interesse%20no%20Full%20Power!" target="_blank" rel="noopener noreferrer" className="group relative w-full inline-flex items-center justify-center px-6 py-3 text-base font-black rounded-full overflow-hidden transition-all duration-500 transform hover:scale-105">
                               {/* Gradiente animado de fundo */}
                               <div className="absolute inset-0 bg-gradient-to-r from-green-700 via-emerald-600 via-lime-600 to-green-700 bg-[length:200%_100%] animate-gradient-flow"></div>
 
@@ -2411,7 +2411,7 @@ export default function FullPowerLanding() {
                                 COMPRAR AGORA
                                 <span className="group-hover:translate-x-2 transition-transform duration-300 text-xl">→</span>
                               </span>
-                            </button>
+                            </a>
                           )}
                         </div>
                       </div>
@@ -2486,7 +2486,7 @@ export default function FullPowerLanding() {
               <div className="space-y-2 md:space-y-3 text-gray-400 text-sm">
                 <div className="flex items-center justify-center md:justify-start gap-2">
                   <Phone className="w-4 h-4 flex-shrink-0" />
-                  <span>WhatsApp: (XX) XXXXX-XXXX</span>
+                  <a href="https://wa.me/5548996899105" target="_blank" rel="noopener noreferrer" className="hover:text-green-500 transition-colors">WhatsApp: (48) 99689-9105</a>
                 </div>
                 <div className="flex items-center justify-center md:justify-start gap-2">
                   <Mail className="w-4 h-4 flex-shrink-0" />
