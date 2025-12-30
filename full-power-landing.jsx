@@ -2502,7 +2502,7 @@ export default function FullPowerLanding() {
 
           <div className="border-t border-gray-800 pt-6 md:pt-8">
             <div className="text-center text-gray-500 text-xs md:text-sm">
-              <p className="mb-2">Vendedor Autorizado: Reginaldo Valdori da Silva - CPF: 086.246.459-56</p>
+              <p className="mb-2">Vendedor Autorizado: Giseli Cristina Merize - CPF: 017.568.379-45</p>
               <p className="mb-2 px-4 md:px-0">Rua Manoel Eduardo Cardoso, 198 - Bela Vista, São José/SC - CEP: 88110-792</p>
               <p>© 2025 Full Power - Todos os direitos reservados</p>
             </div>
